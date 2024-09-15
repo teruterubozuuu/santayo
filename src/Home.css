@@ -1,6 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@200..900&display=swap');
+
 .homeBg{
-    background-image: url("./images/bg-img.png");
+    background-image: url("./images/bg-img2.png");
     height:100vh;
     background-repeat: no-repeat;
     background-size:cover;
 }
+
+.home-container{
+    position: relative;
+    height: 100vh;
+}
+
+.home-content{
+    font-family:"Libre Baskerville", serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 30%;
+    text-align: center;
+    color:rgb(255, 255, 255);
+    
+}
+
+
+.desc{
+    font-size:25px;
+    margin:0;
+    text-shadow: 2px 2px rgb(22, 22, 22);
+}
+
+.desc::before, .desc::after{
+    background-color: #ffffff;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 11%;
+}
+
+.desc::before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  .desc::after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+
+
+.quote{
+    font-size:120px;
+    margin:40px;
+    text-shadow: 2px 5px rgb(22, 22, 22);
+    font-style: italic;
+
+}
+
+.exploreBtn{
+    background-color:#eb7311;
+    color:white;
+    border:0;
+    font-family:"Alice", serif;
+    padding:15px 30px;
+    font-size:17px;
+    cursor: pointer;
+    transition: 0.5s ease;
+    border-radius: 1px;
+}
+
+.exploreBtn:hover{
+    background-color:#b84e07;
+}
+

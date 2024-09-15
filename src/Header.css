@@ -12,6 +12,8 @@ header{
     height:13vh;
     position: fixed;
     width:100%;
+    top:0;
+    z-index:1;
 }
 
 
@@ -31,9 +33,15 @@ header{
     border:none;
     cursor: pointer;
     font-family: "Alice", serif;
-    background-color:#ed8316;
+    background-color:#eb7311;
     color:white;
     font-size:15px;
+    transition:0.5s ease;
+    border-radius: 1px;
+}
+
+.loginBtn:hover{
+    background-color:#b84e07;
 }
 
 .nav-bar{
