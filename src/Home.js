@@ -1,6 +1,6 @@
 import "./Home.css"
 
-function Home(props){
+function Home(){
     return(
         <>
             <div className="homeBg">

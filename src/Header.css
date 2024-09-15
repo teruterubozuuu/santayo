@@ -16,6 +16,11 @@ header{
     z-index:1;
 }
 
+.link{
+    color: white;
+    text-decoration: none;
+}
+
 
 .header-container{
     display:flex;
