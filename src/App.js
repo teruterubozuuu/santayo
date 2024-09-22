@@ -5,6 +5,7 @@ import Home from "./Home";
 import About from "./About";
 import Carinderias from "./Carinderias";
 import Contact from "./Contact";
+import NotFound from "./NotFound";
 import "./Header.css";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/carinderias" element={<Carinderias />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
