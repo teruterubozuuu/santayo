@@ -16,6 +16,11 @@ header{
     z-index:1;
 }
 
+.link{
+    color: white;
+    text-decoration: none;
+}
+
 
 .header-container{
     display:flex;
@@ -61,4 +66,10 @@ header{
     font-family: "Alice", serif; /*or Crimson Text*/
     font-size:16px;
     cursor: pointer;
+}
+
+@media screen and (min-width:2500px){
+    header{
+        height:10vh;
+    }
 }
