@@ -12,6 +12,7 @@ function Carinderias() {
 
     return (
         <div>
+            {/*
             <header className="carinderias-header">
                 <h1>SANTAYO?</h1>
                 <nav>
@@ -23,6 +24,10 @@ function Carinderias() {
                     <button className="loginBtn">Login</button>
                 </nav>
             </header>
+            */}
+            
+        {/*ello! :DD since meron na tayong header component we don't need to create a header element na :3 thank you ! pogchamp !! */}
+        
             <div className="card-container">
                 {cards.map((card) => (
                     <Link to={`/card/${card.id}`} key={card.id} className="card">
