@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css"
 
-function Header(props){
+function Header(){
     return(
         <>
             <header>
@@ -13,11 +13,12 @@ function Header(props){
                             <li><Link to="/">Home</Link></li>
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/carinderias">Carinderias</Link></li>
+                            <li><Link to="/contact">Contact</Link></li>
                         </ul>
                         <button className="loginBtn">Login</button>
+                        <i class="fa fa-bars"></i>
                     </div> 
                 </div> 
-               
             </header>
         </>
     );

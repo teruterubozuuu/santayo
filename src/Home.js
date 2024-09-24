@@ -1,4 +1,5 @@
 import "./Home.css";
+import {Link} from 'react-router-dom'
 
 function Home() {
   return (
@@ -10,7 +11,7 @@ function Home() {
               The best guide in finding the best carinderia places near CIIT
             </p>
             <p className="quote">"Tara, kain tayo!"</p>
-            <button className="exploreBtn">Explore Carinderias</button>
+            <Link to="/carinderias"><button className="exploreBtn">Explore Carinderias</button></Link>
           </div>
         </div>
       </div>
