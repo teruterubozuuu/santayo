@@ -5,10 +5,13 @@
     font-family: 'Libre Baskerville', serif;
     color: rgb(255, 255, 255);
     margin-top:-6%;
+    background-color: #0000005b;
+    padding:80px 100px;
+    border-radius:5px;
 }
 
 .btn-custom {
-    --bs-btn-padding-x: 2rem;
+    --bs-btn-padding-x: 4rem;
     --bs-btn-padding-y: 1rem;
     color: white;
     background-color: #eb7311;
@@ -27,6 +30,7 @@
     margin: 10px;
     text-shadow: 2px 5px rgb(22, 22, 22);
     text-align: center; 
+    font-style: italic;
 }
 
 .text-small-centered {
@@ -35,3 +39,24 @@
     text-shadow: 2px 2px rgb(22, 22, 22);
     text-align: center; 
 }
+
+.text-small-centered::before, .text-small-centered::after{
+  background-color: #ffffff;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 10%;
+}
+
+.text-small-centered::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.text-small-centered::after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
