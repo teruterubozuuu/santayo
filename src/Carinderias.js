@@ -12,21 +12,6 @@ function Carinderias() {
 
     return (
         <div>
-            {/*
-            <header className="carinderias-header">
-                <h1>SANTAYO?</h1>
-                <nav>
-                    <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About</Link></li>
-                        <li><Link to="/carinderias">Carinderias</Link></li>
-                    </ul>
-                    <button className="loginBtn">Login</button>
-                </nav>
-            </header>
-            */}
-            
-        {/*ello! :DD since meron na tayong header component we don't need to create a header element na :3 thank you ! pogchamp !! */}
         
             <div className="card-container">
                 {cards.map((card) => (

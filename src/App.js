@@ -7,20 +7,19 @@ import About from "./About";
 import Contact from "./Contact";
 
 function App() {
-    return (
-        <Router>
-            <Header />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About/>}/>
-                <Route path="/carinderias" element={<Carinderias />} />
-                <Route path="/contact" element={<Contact/>} />
-                <Route path="/card/:id" element={<CardDetails />} />
-                <Route path="*" element={<h2>404 Not Found</h2>} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/carinderias" element={<Carinderias />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/card/:id" element={<CardDetails />} />
+        <Route path="*" element={<h2>404 Not Found</h2>} />
+      </Routes>
+    </Router>
+  );
 }
-
 
 export default App;
