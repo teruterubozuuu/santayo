@@ -1,37 +1,10 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React, { Component, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import "./Header.css";
-import Modal from "react-modal";
-
-class Login extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      sign: false,
-      login: false,
-    };
-  }
-
-  onOpenModal = () => {
-    this.setState({ sign: true });
-  };
-
-  onOpenModalLogin = () => {
-    this.setState({ login: true });
-  };
-
-  closeModal = () => {
-    this.setState({ sign: false });
-  };
-
-  closeModalLogin = () => {
-    this.setState({ login: false });
-  };
-}
+import Login from "./Login";
 
 function Header() {
-  const { login, sign } = this.state;
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
     <>
       <header>
@@ -59,40 +32,15 @@ function Header() {
             <button
               className="loginBtn"
               id="login"
-              onClick={this.onOpenModalLogin}
+              onClick={() => setButtonPopup(true)}
             >
               Login
             </button>
+            <Login trigger={buttonPopup}></Login>
             <i class="fa fa-bars"></i>
           </div>
         </div>
       </header>
-
-      <Modal open={login} onClose={this.closeModalLogin}>
-        <div className="login">
-          <h2>Login</h2>
-          <form>
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="email"
-                name="email"
-                placeholder="E-mail"
-              ></input>
-            </div>
-
-            <div className="form-group">
-              <input
-                className="form-control"
-                type="password"
-                name="pass"
-                placeholder="Password"
-              ></input>
-            </div>
-            <button className="btnLogin" type="button" value="Login"></button>
-          </form>
-        </div>
-      </Modal>
     </>
   );
 }
