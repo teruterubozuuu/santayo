@@ -11,7 +11,9 @@ export default function Login(props) {
         <div className="login-password-container">
           <input type="password" placeholder="Password"></input>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit" onClick={() => props.setTrigger(false)}>
+          Login
+        </button>
         {props.children}
       </div>
     </>

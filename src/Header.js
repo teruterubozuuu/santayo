@@ -36,7 +36,7 @@ function Header() {
             >
               Login
             </button>
-            <Login trigger={buttonPopup}></Login>
+            <Login trigger={buttonPopup} setTrigger={setButtonPopup}></Login>
             <i class="fa fa-bars"></i>
           </div>
         </div>
