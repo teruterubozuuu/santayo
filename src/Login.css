@@ -19,6 +19,7 @@
   border: 8px;
   width: 360px;
   padding: 30px 40px;
+  animation: "dropTop .3s linear";
 }
 
 .parent-container-login h1 {
@@ -68,4 +69,16 @@
   font-size: 16px;
   color: white;
   font-weight: 700;
+}
+
+@keyframes dropTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
