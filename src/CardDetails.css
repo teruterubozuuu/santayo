@@ -10,14 +10,10 @@
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     color: #333; 
-    min-height: 80vh; 
-    overflow-y: auto;
+    height: calc(80vh - 100px); 
+    overflow-y: auto; 
 }
 
-
-body {
-    padding-top: 60px; /* Adjust to match navbar height */
-}
 
 .menu-list {
     display: flex;
@@ -58,12 +54,12 @@ body {
 
 @media (min-width: 601px) {
     .card-detail-container {
-        margin-top: 100px; /* For larger screens */
+        margin-top: 100px; 
     }
 }
 
 @media (max-width: 600px) {
     .card-detail-container {
-        margin-top: 80px; /* Less space for smaller screens */
+        margin-top: 80px; 
     }
 }
