@@ -5,7 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 function Header(){
     return(
         <>
-        <nav class="navbar navbar-expand-lg overflow-auto" style={{backgroundColor: "#080808"}}>
+        <nav class="navbar navbar-expand-lg overflow-auto" style={{backgroundColor: "#080808", width:"100vw"} }>
             <div class="container-fluid "  style={{color: "white"}}>
                 <Link to="/" class="navbar-brand text-white" style={{fontSize:"55px", fontFamily:"Alice, serif" , fontWeight:"600"}}>SANTAYO?</Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
