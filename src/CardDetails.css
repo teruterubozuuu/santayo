@@ -3,13 +3,20 @@
 .card-detail-container {
     max-width: 600px; 
     margin: 20px auto; 
+    margin-top: 100px; 
+    margin-bottom: 20px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     color: #333; 
-    height: 80vh; 
+    min-height: 80vh; 
     overflow-y: auto;
+}
+
+
+body {
+    padding-top: 60px; /* Adjust to match navbar height */
 }
 
 .menu-list {
@@ -46,4 +53,17 @@
     font-weight: bold;
     color: #eb7311; 
     margin-bottom: 10px;
+}
+
+
+@media (min-width: 601px) {
+    .card-detail-container {
+        margin-top: 100px; /* For larger screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .card-detail-container {
+        margin-top: 80px; /* Less space for smaller screens */
+    }
 }
