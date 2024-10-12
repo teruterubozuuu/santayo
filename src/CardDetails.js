@@ -1,6 +1,9 @@
 import { useParams } from "react-router-dom";
 import { carinderiaData } from './Carinderias';
 import "./CardDetails.css";
+import Review from "./Review";
+import { Link } from "react-router-dom";
+
 
 function CardDetails() {
     const { id } = useParams();
@@ -30,6 +33,10 @@ function CardDetails() {
             ) : (
                 <p>Card not found.</p>
             )}
+
+            <Link to="/review" className="reviewLink"><p className="reviewRoute">Leave a review</p></Link>
+            <h1>Reviews</h1>
+            <p>No reviews yet.</p>
         </div>
     );
 }
