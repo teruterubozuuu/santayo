@@ -1,40 +1,48 @@
-import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from "react-router-dom";
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-function Header(){
-    return(
-        <>
-        <nav class="navbar navbar-expand-lg overflow-auto" style={{backgroundColor: "#080808", width:"100vw"} }>
-            <div class="container-fluid "  style={{color: "white"}}>
-                <Link to="/" class="navbar-brand text-white" style={{fontSize:"55px", fontFamily:"Alice, serif" , fontWeight:"600"}}>SANTAYO?</Link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <FontAwesomeIcon icon={faBars} style={{ color: "#eb7311" }} />
-                </button>
-                <div class="collapse navbar-collapse  justify-content-end " id="navbarSupportedContent" >
-                    <ul class="navbar-nav mb-2 mb-lg-0 d-flex nav-underline">
-                        <li class="nav-item" >
-                            <Link to="/" class="nav-link text-white" aria-current="page" style={{fontFamily:"Alice, serif", marginRight:"20px"}}>Home</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link to="/about" class="nav-link text-white" style={{fontFamily:"Alice, serif" , marginRight:"20px"}}>About</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link to="/carinderias" class="nav-link text-white " style={{fontFamily:"Alice, serif" , marginRight:"20px"}}>Carinderias</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link to="/contact" class="nav-link text-white " style={{fontFamily:"Alice, serif", marginRight:"20px"}}>Contact Us</Link>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn"   style={{'--bs-btn-padding-x': '2rem',color:'white', backgroundColor: "#eb7311", borderRadius:'2px', fontFamily:'Alice, serif' }}>Login</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        </>
-    );
+import React, { Component, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import "./Header.css";
+import Login from "./Login";
 
+function Header() {
+  const [buttonPopup, setButtonPopup] = useState(false);
+  return (
+    <>
+      <header>
+        <div className="header-container">
+          {" "}
+          {/*Container for website name and login button*/}
+          <h1 className="website-name">SANTAYO?</h1>
+          <div className="nav-bar">
+            <ul>
+              {" "}
+              {/*navigation bar*/}
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/carinderias">Carinderias</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+            <button
+              className="loginBtn"
+              id="login"
+              onClick={() => setButtonPopup(true)}
+            >
+              Login
+            </button>
+            <Login trigger={buttonPopup} setTrigger={setButtonPopup}></Login>
+            <i class="fa fa-bars"></i>
+          </div>
+        </div>
+      </header>
+    </>
+  );
 }
 
 export default Header;

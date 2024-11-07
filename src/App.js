@@ -5,6 +5,7 @@ import Carinderias from "./Carinderias";
 import CardDetails from "./CardDetails";
 import About from "./About";
 import Contact from "./Contact";
+import Review from "./Review";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/card/:id" element={<CardDetails />} />
         <Route path="*" element={<h2>404 Not Found</h2>} />
+        <Route path="/review" element={<Review/>}/>
       </Routes>
     </Router>
   );

@@ -15,7 +15,7 @@ function About(){
                 Santayo? is an innovative platform designed to showcase the rich variety of delectable and affordable local dishes served in the carinderias 
                 surrounding CIIT College of Arts and Technology. Our goal is to help both locals and CIITzens discover the best spots to eat, relax, 
                 and hang out with friends. Whether you're in the mood for a quick, hearty meal between classes or looking for a cozy place to enjoy local
-                Filipino cuisine, Santayo? offers a comprehensive guide to the top carinderias in the area.
+                Filipino cuisine. Santayo? offers a comprehensive guide to the top carinderias in the area.
                     
                 </p>
                 <h1 className="devTitle">The Developers</h1>
