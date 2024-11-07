@@ -2,7 +2,7 @@ import "./About.css"
 import joyDev from "./images/joy.png"
 import kcDev from "./images/kc.png"
 import jupiDev from "./images/jupi.png"
-import clarisseDev from "./images/clarisse.png"
+
 
 function About(){
     return(
@@ -32,10 +32,6 @@ function About(){
                         <div className="devpic-wrapper">
                             <img src={jupiDev} alt="Dev Pic" className="devpics"></img>
                             <div><label>Jethro Lagmay</label></div>
-                        </div>
-                        <div className="devpic-wrapper">
-                            <img src={clarisseDev} alt="Dev Pic" className="devpics"></img>
-                            <div><label>Clarisse Lapid</label></div>
                         </div>
                     </div>
                 </div>

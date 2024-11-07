@@ -8,7 +8,7 @@ header {
   background-color: #080808;
   color: white;
   height: 13vh;
-  position: fixed;
+  position:absolute;
   width: 100%;
   top: 0;
   z-index: 1;
@@ -30,7 +30,6 @@ header {
 }
 
 .loginBtn {
-  padding: 0 50px;
   border: none;
   cursor: pointer;
   font-family: "Alice", serif;
@@ -39,6 +38,7 @@ header {
   font-size: 15px;
   transition: 0.5s ease;
   border-radius: 1px;
+
 }
 
 .loginBtn:hover {
@@ -54,6 +54,7 @@ header {
 
 .nav-bar ul {
   display: flex;
+  margin:20px 0;
 }
 
 .nav-bar li {
