@@ -2,15 +2,17 @@ import "./About.css"
 import joyDev from "./images/joy.png"
 import kcDev from "./images/kc.png"
 import jupiDev from "./images/jupi.png"
-
+import aboutCover from "./images/about-cover.png"
 
 function About(){
     return(
         <>
+        <img src={aboutCover} alt="about cover page" className="aboutcover"/>
         <div className="about-container">
             <div className="about-content">
-            
-                <h1>About Santayo?</h1>
+            <h1>About Santayo?</h1>
+                <div className="about-content-child">
+                <h2 className="about-title">Mission</h2>
                 <p>
                 Santayo? is an innovative platform designed to showcase the rich variety of delectable and affordable local dishes served in the carinderias 
                 surrounding CIIT College of Arts and Technology. Our goal is to help both locals and CIITzens discover the best spots to eat, relax, 
@@ -18,8 +20,9 @@ function About(){
                 Filipino cuisine. Santayo? offers a comprehensive guide to the top carinderias in the area.
                     
                 </p>
-                <h1 className="devTitle">The Developers</h1>
-                <div>
+                <br></br><br></br>
+                <h2 className="about-title">Meet Our Team</h2>
+ 
                     <div className="devpic-container">
                         <div className="devpic-wrapper">
                             <img src={joyDev} alt="Dev Pic" className="devpics"></img>
@@ -35,6 +38,8 @@ function About(){
                         </div>
                     </div>
                 </div>
+    
+
             </div>
         </div>
         </>

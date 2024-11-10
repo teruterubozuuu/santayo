@@ -1,60 +1,70 @@
-import React, { Component, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link, Navigate } from "react-router-dom";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavLink } from "react-router-dom";
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Login from "./Login";
+import "./Header.css";
 
-
-function Header(){
+function Header() {
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
 
-    return(
-      
-        <>
-        <nav class="navbar navbar-expand-lg overflow-auto" style={{backgroundColor: "#080808", width:"100vw"} }>
-            <div class="container-fluid "  style={{color: "white"}}>
-                <Link to="/" class="navbar-brand text-white" style={{fontSize:"55px", fontFamily:"Alice, serif" , fontWeight:"600", color:"#eb7311"}}>SANTAYO?</Link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <FontAwesomeIcon icon={faBars} style={{ color: "#eb7311" }} />
-                </button>
-                <div class="collapse navbar-collapse  justify-content-end " id="navbarSupportedContent" >
-                  <div>
-                    <ul class="navbar-nav mb-2 mb-lg-0 d-flex nav-underline">
-                          <li class="nav-item" >
-                              <Link to="/" class="nav-link text-white" aria-current="page" style={{fontFamily:"Alice, serif", marginRight:"20px"}}>Home</Link>
-                          </li>
-                          <li class="nav-item">
-                              <Link to="/about" class="nav-link text-white" style={{fontFamily:"Alice, serif" , marginRight:"20px"}}>About</Link>
-                          </li>
-                          <li class="nav-item">
-                              <Link to="/carinderias" class="nav-link text-white " style={{fontFamily:"Alice, serif" , marginRight:"20px"}}>Carinderias</Link>
-                          </li>
-                          <li class="nav-item">
-                              <Link to="/contact" class="nav-link text-white " style={{fontFamily:"Alice, serif", marginRight:"20px"}}>Contact Us</Link>
-                          </li>
-                          
-                      </ul>
-                  </div>
-                   <div>
-                      <button
-                    className="loginBtn"
-                    id="login"
-                    onClick={() => setButtonPopup(true)}
-                    style={{padding:"10px 50px"}}
-                  >
-                    Login
-                  </button>
+  const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
 
-                   </div>
-                   <Login trigger={buttonPopup} setTrigger={setButtonPopup}></Login>
-                  <i class="fa fa-bars"></i>
-
-                </div>
+  return (
+    <>
+      <nav className="navbar navbar-expand-lg overflow-auto" style={{ width: "100vw", padding: "0 30px" }}>
+        <div className="container-fluid">
+          <NavLink to="/" className="navbar-brand text-white" id="custom-website-name"
+                style={{
+                  fontSize: "55px",
+                  fontFamily: "Alice, serif",
+                  fontWeight: "600",
+                  textShadow: "4px 4px 4px rgb(0, 0, 0,25%)"
+                }}>SANTAYO?</NavLink>
+          <button className="navbar-toggler" type="button" onClick={toggleOffcanvas} style={{border:"none"}}>
+            <FontAwesomeIcon icon={faBars} style={{ color: "white" }} />
+          </button>
+          
+          {/* Offcanvas */}
+          <div className={`offcanvas offcanvas-end ${showOffcanvas ? 'show' : ''}`} 
+               tabIndex="-1" 
+               style={{ visibility: showOffcanvas ? 'visible' : 'hidden' }}
+               aria-labelledby="offcanvasNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <button type="button" className="btn-close" onClick={toggleOffcanvas}></button>
             </div>
-        </nav>
-        </>
-    );
-
+            <div className="offcanvas-body">
+              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li className="nav-item">
+                  <NavLink to="/" exact className="nav-link text-white" activeClassName="active" onClick={toggleOffcanvas}
+                        style={{ fontFamily: "Alice, serif", marginRight: "20px", textShadow: "4px 4px 4px rgb(0, 0, 0,25%)" }}>Home</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/about" className="nav-link text-white" activeClassName="active" onClick={toggleOffcanvas}
+                        style={{ fontFamily: "Alice, serif", marginRight: "20px", textShadow: "4px 4px 4px rgb(0, 0, 0,25%)" }}>About</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/carinderias" className="nav-link text-white" activeClassName="active" onClick={toggleOffcanvas}
+                        style={{ fontFamily: "Alice, serif", marginRight: "20px", textShadow: "4px 4px 4px rgb(0, 0, 0,25%)" }}>Carinderias</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/contact" className="nav-link text-white" activeClassName="active" onClick={toggleOffcanvas}
+                        style={{ fontFamily: "Alice, serif", marginRight: "20px", textShadow: "4px 4px 4px rgb(0, 0, 0,25%)" }}>Contact Us</NavLink>
+                </li>
+                <button className="loginBtn" id="login" onClick={() => setButtonPopup(true)} style={{ padding: "10px 50px" }}>
+                Login
+              </button>
+              <Login trigger={buttonPopup} setTrigger={setButtonPopup} />
+              </ul>
+             
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
 }
 
 export default Header;

@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Serif+JP:wght@200..900&display=swap');
-
 
   .custom-centered {
-    font-family: 'Libre Baskerville', serif;
     color: rgb(255, 255, 255);
     border-radius:5px;
     position:absolute;
@@ -15,49 +12,120 @@
     --bs-btn-padding-x: 4rem;
     --bs-btn-padding-y: 1rem;
     color: white;
-    background-color: #eb7311;
+    background-color: rgb(220,68,22,85%) ;
     border-radius: 2px;
     font-family: 'Alice', serif;
     transition:0.5s ease;
   }
 
   .btn-custom:hover {
-    background-color: #d45500;
+    background-color: rgba(177, 53, 16, 0.85) ;
     color:white;
   }
 
   .text-large-centered {
-    font-size: 120px;
-    margin: 10px;
-    text-shadow: 2px 5px rgb(22, 22, 22);
+    font-family: "Euphoria Script", cursive;
+    font-size: 9rem;
+    margin: -5px;
+    text-shadow: 4px 4px 4px rgb(0, 0, 0,25%);
     text-align: center; 
-    font-style: italic;
 }
 
 .text-small-centered {
-    font-size: 25px;
+  font-family: 'Alice', serif;
+    font-size: 1.4rem;
     margin: 0;
-    text-shadow: 2px 2px rgb(22, 22, 22);
+    text-shadow: 4px 4px 4px rgb(0, 0, 0,25%);
     text-align: center; 
 }
 
-.text-small-centered::before, .text-small-centered::after{
-  background-color: #ffffff;
-  content: "";
-  display: inline-block;
-  height: 2px;
-  position: relative;
-  vertical-align: middle;
-  width: 10%;
+@media screen and (max-width:1535px) {
+  .text-large-centered {
+    font-size: 7rem;
 }
 
-.text-small-centered::before {
-  right: 0.5em;
-  margin-left: -50%;
+.text-small-centered {
+  font-size: 1.2rem;
 }
 
-.text-small-centered::after {
-  left: 0.5em;
-  margin-right: -50%;
+
+.btn-custom {
+  transform: scale(0.8);
+}
 }
 
+@media screen and (max-width:1200px) {
+  .text-large-centered {
+    font-size: 5rem;
+}
+
+.text-small-centered {
+  font-size: 1rem;
+}
+
+
+.btn-custom {
+  transform: scale(0.7);
+}
+}
+
+
+@media screen and (max-width:850px) {
+  .text-large-centered {
+    font-size: 4rem;
+}
+
+.text-small-centered {
+  font-size: 0.8rem;
+}
+
+
+.btn-custom {
+  transform: scale(0.6);
+}
+}
+
+@media screen and (max-width:850px) {
+  .text-large-centered {
+    font-size: 4rem;
+}
+
+.text-small-centered {
+  font-size: 0.8rem;
+}
+
+
+.btn-custom {
+  transform: scale(0.6);
+}
+}
+
+@media screen and (max-width:670px) {
+  .text-large-centered {
+    font-size: 3rem;
+}
+
+.text-small-centered {
+  font-size: 0.7rem;
+}
+
+
+.btn-custom {
+  transform: scale(0.5);
+}
+}
+
+@media screen and (max-width:540px) {
+  .text-large-centered {
+    font-size: 3rem;
+}
+
+.text-small-centered {
+  font-size: 0.6rem;
+}
+
+
+.btn-custom {
+  transform: scale(0.5);
+}
+}

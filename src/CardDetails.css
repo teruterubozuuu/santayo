@@ -2,7 +2,7 @@
 
 
 .card-detail-container {
-    max-width: 600px; 
+    max-width: 70%; 
     margin: 20px auto; 
     margin-top: 100px; 
     margin-bottom: 20px;
@@ -10,9 +10,27 @@
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    color: #333; 
+    font-family: "Lato", serif;
+    font-weight: 400;
+    color:#696969;
     height: calc(80vh - 100px); 
     overflow-y: auto; 
+}
+
+.card-detail-container h1{
+    font-family: "Playfair Display", sans-serif;
+    text-align: center;
+    font-weight:600;
+    color:rgb(220,68,22,85%) ;
+    font-size: 2.5rem;
+}
+
+.bi-arrow-left{
+    font-size: 190%;
+
+    margin:0 50px;
+    color:rgb(220,68,22,85%) ;
+    cursor: pointer;
 }
 
 
@@ -27,7 +45,7 @@
     border: 1px solid #ddd; 
     border-radius: 5px; 
     padding: 15px; 
-    margin: 10px 0; 
+    margin: 10px 50px; 
     text-align: center; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }

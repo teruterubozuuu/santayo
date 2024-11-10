@@ -11,11 +11,15 @@ function CardDetails() {
 
     return (
         <div className="card-detail-container">
+            <Link to="/carinderias"><i class="bi bi-arrow-left"></i></Link>
+            <div>
             {cardDetail ? (
                 <>
                     <h1>{cardDetail.title}</h1>
+                    <br></br>
                     <p>{cardDetail.description}</p>
-                    <h2><em>The Menu</em></h2>
+                    <br></br>
+                    <h2>The Menu</h2>
                     <div className="menu-list">
                         {cardDetail.menu.map((category, categoryIndex) => (
                             <div key={categoryIndex} className="menu-category">
@@ -34,9 +38,12 @@ function CardDetails() {
                 <p>Card not found.</p>
             )}
 
-            <Link to="/review" className="reviewLink"><p className="reviewRoute">Leave a review</p></Link>
+            </div>
+            <div style={{marginTop:"7%"}}>
+            <Link to="/review" className="reviewLink"><p className="reviewRoute" style={{margin:"0 50px"}}>Leave a review</p></Link>
             <h1>Reviews</h1>
             <p>No reviews yet.</p>
+            </div>
         </div>
     );
 }

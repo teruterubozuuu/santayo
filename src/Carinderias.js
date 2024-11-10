@@ -4,6 +4,7 @@ import rainbow from './images/rainbow.png';
 import AandA from './images/AandA.png';
 import { Link } from "react-router-dom";
 import "./Carinderias.css";
+import carinderiaCover from "./images/carinderia-cover.png"
 
 const cards = [ 
     { 
@@ -243,8 +244,10 @@ export const carinderiaData = cards;
 
 export default function Carinderias() {
     return (
-        <div>
-        
+        <>
+         <img src={carinderiaCover} alt="carinderia cover page" className="carinderia-cover"/>
+            <h1 className='carinderias-title'>Carinderias</h1>
+        <div className='carinderia-container'>
             <div className="card-container">
                 {cards.map((card) => (
                     <Link to={`/card/${card.id}`} key={card.id} className="card">
@@ -255,5 +258,6 @@ export default function Carinderias() {
                 ))}
             </div>
         </div>
+        </>
     );
 }

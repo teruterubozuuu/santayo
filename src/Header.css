@@ -1,72 +1,93 @@
-@import url("https://fonts.googleapis.com/css2?family=Alice&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
 
 * {
   box-sizing: border-box;
 }
-
-header {
-  background-color: #080808;
+.nav-link {
+  position: relative;
+  display: inline-block;
   color: white;
-  height: 13vh;
-  position:absolute;
-  width: 100%;
-  top: 0;
-  z-index: 1;
-}
-
-.link {
-  color: white;
-  text-decoration: none;
-}
-
-.header-container {
-  display: flex;
-}
-
-.website-name {
   font-family: "Alice", serif;
-  font-size: 60px;
-  margin: 25px 50px;
+  margin-right: 20px;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: color 0.3s ease;
+  opacity: 0.75;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 3px; 
+  width: 0;
+  max-width: 80%;
+  height: 2px; 
+  background-color:  rgb(220,68,22,85%);
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.nav-link:hover::after {
+  width:80%;
+}
+
+.nav-link.active {
+  opacity:1;
+}
+
+.nav-link.active::after {
+  width: 100%; 
 }
 
 .loginBtn {
   border: none;
   cursor: pointer;
   font-family: "Alice", serif;
-  background-color: #eb7311;
+  background-color: rgb(220,68,22,85%) ;
   color: white;
   font-size: 15px;
-  transition: 0.5s ease;
   border-radius: 1px;
+  
 
 }
+
+.navbar{
+  z-index:4;
+  background-color: transparent !important;
+  border: none;
+}
+
+
+
+
 
 .loginBtn:hover {
-  background-color: #b84e07;
+  background-color: rgba(194, 59, 18, 0.85) ;
 }
 
-.nav-bar {
-  display: flex;
-  position: absolute;
-  right: 50px;
-  top: 35px;
+.offcanvas {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  background-color: rgb(12, 12, 12) !important;
 }
 
-.nav-bar ul {
-  display: flex;
-  margin:20px 0;
+.offcanvas.show {
+  transform: translateX(0);
 }
 
-.nav-bar li {
-  list-style: none;
-  margin: 0 50px;
-  font-family: "Alice", serif; /*or Crimson Text*/
-  font-size: 16px;
-  cursor: pointer;
+.offcanvas .nav-link,
+.offcanvas .btn-close {
+  color: white !important; 
 }
 
-@media screen and (min-width: 2500px) {
-  header {
-    height: 10vh;
-  }
+.offcanvas .offcanvas-title {
+  color: white; 
+}
+.offcanvas .btn-close {
+  filter: invert(1); 
 }

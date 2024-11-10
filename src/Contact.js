@@ -1,12 +1,14 @@
 import "./Contact.css";
+import contactCover from "./images/contact-cover.png"
 
 function Contact() {
   return (
     <>
-      <div className="contact-container">
+      <img src={contactCover} alt="contact cover photo" className="contact-cover"></img>
         <div className="contact-content">
           <h1>Contact us!</h1>
         </div>
+      <div className="contact-container">
       </div>
 
       <form className="contact-form">
