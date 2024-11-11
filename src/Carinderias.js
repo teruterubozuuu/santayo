@@ -12,6 +12,8 @@ const cards = [
         title: "Red Alert", 
         image: pula, 
         description: "Looking for a student budget friendly tapsilogan and other carinderia foods? You can go here at Red Alert, aka Pula!",
+        latitude: 14.629411,  // Example latitude
+        longitude: 121.041825,  // Example longitude
         menu: [
             { 
                 category: "Silog Meals", 
@@ -59,6 +61,8 @@ const cards = [
         title: "Merly's Paresan", 
         image: pares, 
         description: "If what suits your taste buds is a delicious pares or other food with soup like mami and goto that is affordable, go here!",
+        latitude: 14.629411,  // Example latitude
+        longitude: 121.041825,  // Example longitude
         menu: [
             {
                 category: "Signature Dishes",
@@ -83,6 +87,8 @@ const cards = [
         title: "Rainbow Carinderia", 
         image: rainbow, 
         description: "If you're looking for an affordable variety of food that fits right through your budget, you can go here!",
+        latitude: 14.629411,  // Example latitude
+        longitude: 121.041825,  // Example longitude
         menu: [
             {
                 category: "Viands or Dishes",
@@ -119,6 +125,8 @@ const cards = [
         title: "A&A", 
         image: AandA, 
         description: "Looking for various menu of food and drinks that is student budget friendly? A&A is here!",
+        latitude: 14.629411,  // Example latitude
+        longitude: 121.041825,  // Example longitude
         menu: [
             { 
                 category: "Silog Meals", 
