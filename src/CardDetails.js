@@ -113,6 +113,9 @@ function CardDetails() {
             ) : (
                 <p>Card not found.</p>
             )}
+            
+            <h1>Map Guide</h1>
+            <p>From CIIT to {cardDetail.title}</p>
 
             {/* Google Maps container */}
             <div id="map" style={{ height: "300px", marginTop: "20px", borderRadius: "8px", boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)" }}></div>
