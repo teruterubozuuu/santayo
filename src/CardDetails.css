@@ -70,6 +70,12 @@
     margin-bottom: 10px;
 }
 
+#map {
+    height: 300px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
 
 @media (min-width: 601px) {
     .card-detail-container {
