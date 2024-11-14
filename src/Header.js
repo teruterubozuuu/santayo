@@ -54,7 +54,7 @@ function Header() {
                         style={{ fontFamily: "Alice, serif", marginRight: "20px", textShadow: "4px 4px 4px rgb(0, 0, 0,25%)" }}>Contact Us</NavLink>
                 </li>
                 <button className="loginBtn" id="login" onClick={() => setButtonPopup(true)} style={{ padding: "10px 50px" }}>
-                Login
+                Register
               </button>
               <Login trigger={buttonPopup} setTrigger={setButtonPopup} />
               </ul>
