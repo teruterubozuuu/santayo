@@ -2,6 +2,7 @@
   top:-16.5%;
   position:absolute;
   object-fit: cover;
+  width:100%;
 }
 
 html, body {

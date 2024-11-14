@@ -29,7 +29,8 @@ html, body {
 .aboutcover{
     top:-15%;
     position:absolute;
-    object-fit: cover
+    object-fit: cover;
+    width:100%;
 }
 
 .about-content h1{
