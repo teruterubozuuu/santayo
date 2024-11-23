@@ -23,10 +23,10 @@ p {
 }
 
 .carinderia-cover{
-    top:-16.5%;
+    top:0;
     position:absolute;
     object-fit: cover;
-    width:100%;
+    max-width:100%;
 }
 
 html, body {
@@ -42,19 +42,6 @@ html, body {
     background-color: #f9f9f9; 
     box-sizing: border-box; 
     padding: 20px;
-  }
-
-
-  .carinderias-title{
-    width:100%;
-    padding: 5%;
-    text-align: center;
-    font-weight: 100;
-    font-size:6rem;
-    font-family: "Euphoria Script", cursive;
-    text-shadow: 4px 4px 4px rgb(0, 0, 0,25%);
-    color:white;
-    position:absolute;
   }
 
 

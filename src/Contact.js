@@ -6,14 +6,14 @@ function Contact() {
     <>
       <img src={contactCover} alt="contact cover photo" className="contact-cover"></img>
         <div className="contact-content">
-          <h1>Contact us!</h1>
+
         </div>
       <div className="contact-container">
       </div>
 
       <form className="contact-form">
         <div className="input-box">
-          <label className="nameLabel">Name</label>
+          <label className="Label">Name</label>
           <input
             type="text"
             className="field"
@@ -23,7 +23,7 @@ function Contact() {
         </div>
 
         <div className="input-box">
-          <label className="emailLabel">Email Address</label>
+          <label className="Label">Email Address</label>
           <input
             type="email"
             className="field"
@@ -33,7 +33,7 @@ function Contact() {
         </div>
 
         <div className="input-box">
-          <label className="emailLabel">Your Message</label>
+          <label className="Label">Your Message</label>
           <textarea
             name=""
             id=""

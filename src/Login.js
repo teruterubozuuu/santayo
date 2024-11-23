@@ -20,11 +20,9 @@ export default function Login(props) {
   return props.trigger ? (
     <>
       <div className="parent-container-login">
-
-        <div className="form-container">
-          <form onSubmit={handleSubmit}>
-            <div className="closeLogin-cont"><button className="closeLoginForm" onClick={() => props.setTrigger(false)} >x</button></div>
-            <h1>Register</h1>
+          <form onSubmit={handleSubmit} className="form-container">
+            <div className="closeLogin-cont"><p className="closeLoginForm" onClick={() => props.setTrigger(false)} >x</p></div>
+            <h1>Login</h1>
             <div className="login-email-container">
               <input type="email" placeholder="E-Mail" onChange={(e) => setEmail(e.target.value)}></input>
             </div>
@@ -32,11 +30,11 @@ export default function Login(props) {
               <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}></input>
             </div>
             <button className="loginSubmit" type="submit" onClick={() => props.setTrigger(false)}>
-              Sign up
+              Login
             </button>
-            <p className="registerLink">Don't have an account? Register now</p>
+            <p className="registerLink">Don't have an account? <span style={{textDecoration:"underline"}}>Register now</span></p>
           </form>
-        </div>
+   
         {props.children}
       </div>
     </>

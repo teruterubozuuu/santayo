@@ -254,7 +254,7 @@ export default function Carinderias() {
     return (
         <>
          <img src={carinderiaCover} alt="carinderia cover page" className="carinderia-cover"/>
-            <h1 className='carinderias-title'>Carinderias</h1>
+
         <div className='carinderia-container'>
             <div className="card-container">
                 {cards.map((card) => (

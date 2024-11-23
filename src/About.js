@@ -10,7 +10,7 @@ function About(){
         <img src={aboutCover} alt="about cover page" className="aboutcover"/>
         <div className="about-container">
             <div className="about-content">
-            <h1>About Santayo?</h1>
+            
                 <div className="about-content-child">
                 <h2 className="about-title">Mission</h2>
                 <p>
