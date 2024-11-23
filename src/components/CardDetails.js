@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { carinderiaData } from './Carinderias';
+import { carinderiaData } from '../pages/Carinderias';
 import "./CardDetails.css";
 import Review from "./Review";
 import { Link } from "react-router-dom";

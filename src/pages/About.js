@@ -1,8 +1,8 @@
 import "./About.css"
-import joyDev from "./images/joy.png"
-import kcDev from "./images/kc.png"
-import jupiDev from "./images/jupi.png"
-import aboutCover from "./images/about-cover.png"
+import joyDev from "../images/joy.png"
+import kcDev from "../images/kc.png"
+import jupiDev from "../images/jupi.png"
+import aboutCover from "../images/about-cover.png"
 
 function About(){
     return(

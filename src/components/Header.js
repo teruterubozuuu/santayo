@@ -26,7 +26,6 @@ function Header() {
             <FontAwesomeIcon icon={faBars} style={{ color: "white" }} />
           </button>
           
-          {/* Offcanvas */}
           <div className={`offcanvas offcanvas-end ${showOffcanvas ? 'show' : ''}`} 
                tabIndex="-1" 
                style={{ visibility: showOffcanvas ? 'visible' : 'hidden' }}

@@ -1,5 +1,5 @@
 import "./Contact.css";
-import contactCover from "./images/contact-cover.png"
+import contactCover from "../images/contact-cover.png"
 
 function Contact() {
   return (

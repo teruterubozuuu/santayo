@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./Header";
-import Home from "./Home";
-import Carinderias from "./Carinderias";
-import CardDetails from "./CardDetails";
-import About from "./About";
-import Contact from "./Contact";
-import Review from "./Review";
+import Header from "../src/components/Header";
+import Home from "../src/pages/Home";
+import Carinderias from "../src/pages/Carinderias";
+import CardDetails from "../src/components/CardDetails";
+import About from "../src/pages/About";
+import Contact from "../src/pages/Contact";
+import Review from "../src/components/Review";
 
 function App() {
   return (
