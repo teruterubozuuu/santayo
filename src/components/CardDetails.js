@@ -141,7 +141,7 @@ function CardDetails() {
             if (isAuthenticated()) {
               setIsOpen(true);
             } else {
-              alert("You have to be logged in first.");
+              alert("Please login to leave a review.");
             }
           }}
         >
