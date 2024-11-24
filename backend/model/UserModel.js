@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // Define the Product schema
 
 const userSchema = new mongoose.Schema({
-
+  username:String,
   email: String,
   password: String,
 
