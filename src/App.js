@@ -6,6 +6,8 @@ import CardDetails from "../src/components/CardDetails";
 import About from "../src/pages/About";
 import Contact from "../src/pages/Contact";
 import Review from "../src/components/Review";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/register" element={<Register/>}/>
         <Route path="/about" element={<About />} />
         <Route path="/carinderias" element={<Carinderias />} />
         <Route path="/contact" element={<Contact />} />

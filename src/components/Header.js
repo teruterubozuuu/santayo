@@ -5,8 +5,8 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Login from "./Login";
 import "./Header.css";
 
+
 function Header() {
-  const [buttonPopup, setButtonPopup] = useState(false);
   const [showOffcanvas, setShowOffcanvas] = useState(false);
 
   const toggleOffcanvas = () => setShowOffcanvas(!showOffcanvas);
@@ -52,10 +52,12 @@ function Header() {
                   <NavLink to="/contact" className="nav-link text-white" activeClassName="active" onClick={toggleOffcanvas}
                         style={{ fontFamily: "Alice, serif", marginRight: "20px", textShadow: "4px 4px 4px rgb(0, 0, 0,25%)" }}>Contact Us</NavLink>
                 </li>
-                <button className="loginBtn" id="login" onClick={() => setButtonPopup(true)} style={{ padding: "10px 50px" }}>
-                Login
-              </button>
-              <Login trigger={buttonPopup} setTrigger={setButtonPopup} />
+                <NavLink to="/login">
+                  <button className="loginBtnPopup" id="login">
+                    Login
+                  </button>
+                </NavLink>
+
               </ul>
              
             </div>

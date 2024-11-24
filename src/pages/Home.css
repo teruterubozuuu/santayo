@@ -9,7 +9,7 @@
 }
 
 .btn-custom {
-    --bs-btn-padding-x: 4rem;
+    --bs-btn-padding-x: 3.5rem;
     --bs-btn-padding-y: 1rem;
     color: white;
     background-color: rgb(220,68,22,85%) ;
@@ -50,7 +50,7 @@
 
 
 .btn-custom {
-  transform: scale(0.8);
+  transform: scale(0.6);
 }
 }
 

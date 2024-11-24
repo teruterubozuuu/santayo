@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Alice&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
 
-.parent-container-login {
+.parent-container-register{
   position:fixed;
   width: 100%;
   height: 100vh;
@@ -14,21 +14,22 @@
   align-items: center;
 }
 
-.form-container h1 {
+.register-form-container h1 {
   font-size: 2.5rem;
   text-align: center;
   font-family: "Playfair Display", serif;
   color:white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.425);
-  margin-top:-3%;
+  margin-top:-8%;
+  margin-bottom:8%;
 }
 
-.form-container{
+.register-form-container{
   background-color: rgb(7, 7, 7) !important;
   border-radius: 2px;
   border: 8px;
   width: 360px;
-  height:500px;
+  height:550px;
   padding:40px;
   animation: "dropTop .3s linear";
   position:absolute;
@@ -37,13 +38,13 @@
   transform: translate(-50%,-50%);
 }
 
-.closeLogin-cont{
+.closeRegister-cont{
   display:flex;
   justify-content: end;
   margin-bottom:20px;
 }
 
-.closeLoginForm{
+.closeRegisterForm{
   font-size:1.1rem;
   color:white;
   background-color: transparent;
@@ -52,18 +53,18 @@
   transition:0.5s ease;
 }
 
-.closeLoginForm:hover{
+.closeRegisterForm:hover{
   color: rgb(220,68,22,85%);
 }
 
-.login-password-container, .login-email-container {
+.register-password-container, .register-email-container {
   position: relative;
   width: 100%;
   height: 50px;
   margin: 30px 0;
 }
 
-.parent-container-login input {
+.parent-container-register input {
   width: 100%;
   height: 100%;
   border: none;
@@ -75,11 +76,11 @@
   font-family: "Lato", serif;
 }
 
-.parent-container-login input::placeholder {
+.parent-container-register input::placeholder {
   color: rgb(128, 128, 128);
 }
 
-.parent-container-login .loginSubmit {
+.parent-container-register .registerSubmit {
   background-color: rgb(220,68,22,85%);
   width: 100%;
   height: 50px;
@@ -95,18 +96,18 @@
   font-family: "Lato", serif;
 }
 
-.registerLink{
+.loginLink{
   margin-top: 20px;
   cursor: pointer;
   color:white;
 }
 
-.register-nav-link{
+.login-nav-link{
   color:white;
   transition:0.5s ease;
 }
 
-.register-nav-link:hover{
+.login-nav-link:hover{
   color: rgb(220,68,22,85%);
 }
 

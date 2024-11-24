@@ -1,6 +1,8 @@
 import "./Login.css";
 import {useState} from 'react'
 import axios from 'axios'
+import { NavLink } from "react-router-dom";
+import Register from "./Register";
 
 export default function Login(props) {
 
@@ -17,11 +19,15 @@ export default function Login(props) {
 
 
 
-  return props.trigger ? (
+  return  (
     <>
       <div className="parent-container-login">
           <form onSubmit={handleSubmit} className="form-container">
-            <div className="closeLogin-cont"><p className="closeLoginForm" onClick={() => props.setTrigger(false)} >x</p></div>
+            <div className="closeLogin-cont">
+              <NavLink to="/" style={{textDecoration:"none"}}>
+                <p className="closeLoginForm">x</p>
+              </NavLink>
+            </div>
             <h1>Login</h1>
             <div className="login-email-container">
               <input type="email" placeholder="E-Mail" onChange={(e) => setEmail(e.target.value)}></input>
@@ -29,16 +35,17 @@ export default function Login(props) {
             <div className="login-password-container">
               <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)}></input>
             </div>
-            <button className="loginSubmit" type="submit" onClick={() => props.setTrigger(false)}>
+            <button className="loginSubmit" type="submit">
               Login
             </button>
-            <p className="registerLink">Don't have an account? <span style={{textDecoration:"underline"}}>Register now</span></p>
+            <p className="registerLink">Don't have an account? 
+              
+                <span> <NavLink to="/register" className="register-nav-link">Register now</NavLink></span>
+
+            </p>
           </form>
    
-        {props.children}
       </div>
     </>
-  ) : (
-    ""
-  );
+  ) 
 }

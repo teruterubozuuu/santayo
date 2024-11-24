@@ -44,7 +44,7 @@
   width: 100%; 
 }
 
-.loginBtn {
+.loginBtnPopup {
   border: none;
   cursor: pointer;
   font-family: "Alice", serif;
@@ -52,7 +52,7 @@
   color: white;
   font-size: 15px;
   border-radius: 1px;
-  
+  padding:10px 50px;
 
 }
 
@@ -67,7 +67,7 @@
 
 
 
-.loginBtn:hover {
+.loginBtnPopup:hover {
   background-color: rgba(194, 59, 18, 0.85) ;
 }
 
