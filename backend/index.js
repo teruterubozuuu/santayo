@@ -8,7 +8,7 @@ const ContactModel = require("./model/ContactModel");
 app.use(cors());
 app.use(express.json()); // To handle JSON data
 
-mongoose.connect("mongodb://localhost:27017/");
+mongoose.connect("mongodb://localhost:27017/contact");
 
 const feedbackSchema = new mongoose.Schema({
   name: String,
