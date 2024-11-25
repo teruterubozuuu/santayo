@@ -1,6 +1,6 @@
 import "./Contact.css";
 import contactCover from "../images/contact-cover.png";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
@@ -11,6 +11,8 @@ function Contact() {
     email: "test@gmail.com",
     message: "test",
   });
+
+  const nameRef = useRef();
 
   const navigate = useNavigate();
 
