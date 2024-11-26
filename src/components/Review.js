@@ -3,12 +3,13 @@ import { Rating } from "@mui/material";
 import { useState } from "react";
 
 
-function Review(){
+function Review({setIsOpen}){
     const [value, setValue] = useState(2);
 
     return (
-      <>
+      <div className="review-container">
         <div className="review-wrapper">
+          <p onClick={()=>setIsOpen(false)} className="closeBtn">x</p>
           <h1>Review</h1>
           <div className="rating-container">
             <Rating
@@ -25,7 +26,7 @@ function Review(){
             <div className="button-container"><button>Submit</button></div>
           </div>
           </div>
-      </>
+      </div>
     );
 }
 
