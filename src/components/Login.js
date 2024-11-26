@@ -40,7 +40,7 @@ export default function Login() {
       if (result.success) {
         setSuccess("Login successful! Redirecting...");
         setTimeout(() => {
-          navigate("/"); 
+          navigate("/");
         }, 2000);
       } else {
         setError(result.message);
