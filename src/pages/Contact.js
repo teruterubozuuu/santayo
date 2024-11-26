@@ -4,10 +4,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "testing",
-    email: "testing@gmail.com",
-    message: "testing",
+  const [contactData, setContactData] = useState({
+    name: "",
+    email: "",
+    message: "",
   });
 
   const navigate = useNavigate();
@@ -17,8 +17,8 @@ function Contact() {
   const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setContactData({
+      ...contactData,
       [e.target.name]: e.target.value,
     });
   };
@@ -27,7 +27,7 @@ function Contact() {
     e.preventDefault();
     setError("");
     setSuccess("");
-    const { name, email, message } = formData;
+    const { name, email, message } = contactData;
 
     if (!name || !email || !message) {
       setError("Please input values.");
@@ -72,11 +72,12 @@ function Contact() {
         <div className="input-box">
           <label className="Label">Name</label>
           <input
+            name="name"
             type="text"
             className="field"
             placeholder="Enter your name"
             required
-            value={formData.name}
+            value={contactData.name}
             onChange={handleChange}
           ></input>
         </div>
@@ -84,11 +85,12 @@ function Contact() {
         <div className="input-box">
           <label className="Label">Email Address</label>
           <input
+            name="email"
             type="email"
             className="field"
             placeholder="Enter your email address"
             required
-            value={formData.email}
+            value={contactData.email}
             onChange={handleChange}
           ></input>
         </div>
@@ -96,12 +98,11 @@ function Contact() {
         <div className="input-box">
           <label className="Label">Your Message</label>
           <textarea
-            name=""
-            id=""
+            name="message"
             className="fieldMessage"
             placeholder="Enter your message"
             required
-            value={formData.message}
+            value={contactData.message}
             onChange={handleChange}
           ></textarea>
         </div>
