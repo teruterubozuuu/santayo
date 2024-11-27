@@ -26,7 +26,7 @@ p {
     top:0;
     position:absolute;
     object-fit: cover;
-    max-width:100%;
+    width:100%;
 }
 
 html, body {
@@ -51,8 +51,15 @@ html, body {
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 220px 30px 30px; 
-    padding-top: 170px; 
+    padding-top: 120px; 
+    animation: fadeIn 0.5s ease-in;
 }
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
 
 .card {
     font-family: "Alice", serif;
@@ -97,4 +104,17 @@ h1 {
     h1 {
         font-size: 1.5rem; 
     }
+}
+
+@media screen and (min-width:2500px){
+    .card-container {
+        padding-top:250px;
+        transform:scale(1.2);
+        margin: 250px 200px 30px; 
+    }
+
+    .carinderia-container{
+        height: 90vh; 
+    }
+
 }

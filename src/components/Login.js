@@ -59,8 +59,8 @@ export default function Login() {
           </NavLink>
         </div>
         <h1>Login</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        {success && <p style={{ color: "green" }}>{success}</p>}
+        {error && <p style={{ color: "red", fontSize:"1rem" , marginBottom:"-20px"}}>{error}</p>}
+        {success && <p style={{ color: "green", fontSize:"1rem" , marginBottom:"-20px"}}>{success}</p>}
         <div className="login-email-container">
           <input
             type="email"

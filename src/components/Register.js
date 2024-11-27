@@ -1,7 +1,6 @@
 import React from "react";
 import "./Register.css";
 import { useState } from "react";
-import axios from "axios";
 import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Register() {
@@ -76,8 +75,8 @@ export default function Register() {
             </NavLink>
           </div>
           <h1>Register</h1>
-          {error && <p style={{ color: "red" }}>{error}</p>}
-          {success && <p style={{ color: "green" }}>{success}</p>}
+          {error && <p style={{ color: "red", fontSize:"0.9rem" }}>{error}</p>}
+          {success && <p style={{ color: "green", fontSize:"0.9rem" }}>{success}</p>}
           <div className="register-username-container">
             <input
               type="text"

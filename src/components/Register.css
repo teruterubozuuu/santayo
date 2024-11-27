@@ -36,6 +36,19 @@
   top:40%;
   left:50%;
   transform: translate(-50%,-50%);
+  animation: fadeInUp 1.1s ease-in-out;
+}
+
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translate(-50%,-30%);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-50%,-50%);
+	}
 }
 
 .closeRegister-cont{

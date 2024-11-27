@@ -26,13 +26,25 @@ html, body {
     height: 50%;
     text-align: center;
     color:rgb(0, 0, 0);
+    animation: fadeInDown 1.2s ease-in-out;
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translate(-50%,-60%);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-50%,-50%);
+	}
 }
 
 .aboutcover{
     top:0;
     position:absolute;
     object-fit: cover;
-    max-width:100%;
+    width:100%;
 }
 
 
@@ -91,4 +103,13 @@ html, body {
 .about-content-child{
     padding-bottom:5%;
     margin-top:20%;
+}
+
+
+@media screen and (min-width:2500px){
+   
+  .about-container {
+    height:100vh;
+  }
+
 }

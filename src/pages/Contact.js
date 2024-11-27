@@ -46,7 +46,7 @@ function Contact() {
       const data = await res.json();
 
       if (res.ok) {
-        setSuccess("Feedback submitted");
+        alert("Feedback submitted");
         setTimeout(() => {
           navigate("/");
         }, 2000);
