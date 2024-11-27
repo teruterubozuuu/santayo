@@ -1,5 +1,6 @@
-import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect } from 'react';
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { carinderiaData } from "../pages/Carinderias";
 import { useAuth } from "../context/AuthContext";
 import "./CardDetails.css";
@@ -7,7 +8,7 @@ import Review from "../components/Review"; // Import the Review component
 import ReviewsList from "../components/ReviewsList"; // Import the ReviewsList component
 
 function CardDetails() {
-  const { id } = useParams();
+  const id = window.location.pathname.split('/')[2]; // Gets 'card/1' from URL
   const cardDetail = carinderiaData.find((card) => card.id === Number(id));
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated } = useAuth();
@@ -22,13 +23,13 @@ function CardDetails() {
   });
 
   // State for managing reviews
-  const [reviews, setReviews] = useState([]);
+  const [setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/api/feedback/${id}`);
+        const response = await fetch(`http://localhost:5000/api/feedback/${id}`);
         const data = await response.json();
         if (data.success) {
           setReviews(data.data);
@@ -44,7 +45,7 @@ function CardDetails() {
 
   const handleReviewSubmission = async (newReview) => {
     try {
-      const response = await fetch(`http://localhost:5001/api/feedback/${id}`, {
+      const response = await fetch(`http://localhost:5000/api/feedback/${id}`, {
         method: 'POST',
         body: JSON.stringify(newReview),
         headers: { 'Content-Type': 'application/json' },
@@ -121,6 +122,8 @@ function CardDetails() {
       });
     }
   }, [cardDetail]);
+
+  console.log("Current carinderia ID:", id);
 
   return (
     <div className="card-detail-container">

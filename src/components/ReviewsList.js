@@ -1,60 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Rating } from '@mui/material';
+import './ReviewsList.css';
 
 const ReviewsList = ({ carinderiaId }) => {
     const [reviews, setReviews] = useState([]);
-    const [averageRating, setAverageRating] = useState(0);
-    const [totalReviews, setTotalReviews] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                // Fetch reviews
-                const reviewsRes = await fetch(`http://localhost:5001/api/feedback/${carinderiaId}`);
-                const reviewsData = await reviewsRes.json();
+                const response = await fetch(`http://localhost:5000/api/feedback/${carinderiaId}`);
                 
-                // Fetch average rating
-                const ratingRes = await fetch(`http://localhost:5001/api/feedback/rating/${carinderiaId}`);
-                const ratingData = await ratingRes.json();
-                
-                if (reviewsData.success) {
-                    setReviews(reviewsData.data);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
-                if (ratingData.success) {
-                    setAverageRating(ratingData.data.averageRating);
-                    setTotalReviews(ratingData.data.totalReviews);
-                }
-            } catch (error) {
-                console.error('Error fetching reviews:', error);
+                const data = await response.json();
+                setReviews(data);
+            } catch (err) {
+                console.error('Error fetching reviews:', err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
             }
         };
 
-        fetchReviews();
+        if (carinderiaId) {
+            fetchReviews();
+        }
     }, [carinderiaId]);
+
+    if (loading) return <div>Loading reviews...</div>;
+    if (error) return <div>Error loading reviews: {error}</div>;
 
     return (
         <div className="reviews-container">
-            <div className="reviews-summary">
-                <h3>Customer Reviews</h3>
-                <div className="average-rating">
-                    <Rating value={averageRating} readOnly precision={0.5} />
-                    <span>{averageRating.toFixed(1)} out of 5</span>
-                    <span>({totalReviews} reviews)</span>
+            <h2>Reviews</h2>
+            {reviews && reviews.length > 0 ? (
+                <div className="reviews-list">
+                    {reviews.map((review) => (
+                        <div key={review._id} className="review-item">
+                            <Rating value={Number(review.rating)} readOnly />
+                            <p>{review.comment}</p>
+                            <small>{new Date(review.createdAt).toLocaleDateString()}</small>
+                        </div>
+                    ))}
                 </div>
-            </div>
-            
-            <div className="reviews-list">
-                {reviews.map((review) => (
-                    <div key={review._id} className="review-item">
-                        <Rating value={review.rating} readOnly size="small" />
-                        <p className="review-comment">{review.comment}</p>
-                        <p className="review-date">
-                            {new Date(review.createdAt).toLocaleDateString()}
-                        </p>
-                    </div>
-                ))}
-            </div>
+            ) : (
+                <p>No reviews yet.</p>
+            )}
         </div>
     );
 };

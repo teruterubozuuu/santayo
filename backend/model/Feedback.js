@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const feedbackSchema = new mongoose.Schema({
+    carinderiaId: {
+        type: String,
+        required: true
+    },
     rating: {
         type: Number,
         required: true,
@@ -9,12 +13,13 @@ const feedbackSchema = new mongoose.Schema({
     },
     comment: {
         type: String,
-        required: true
+        required: true,
+        minlength: 3
     },
     createdAt: {
         type: Date,
         default: Date.now
     }
-}, { collection: 'feedbacks' });
+});
 
 module.exports = mongoose.model('Feedback', feedbackSchema); 

@@ -2,37 +2,44 @@ const express = require('express');
 const router = express.Router();
 const Feedback = require('../model/Feedback');
 
-router.post('/feedback', async (req, res) => {
+// Get reviews route
+router.get('/:id', async (req, res) => {
     try {
-        console.log('Received feedback request:', req.body);
-        
-        const { rating, comment } = req.body;
-        
-        if (!rating || !comment) {
-            return res.status(400).json({
-                success: false,
-                message: 'Rating and comment are required'
-            });
-        }
+        const id = req.params.id;
+        console.log('Looking for reviews with carinderiaId:', id);
 
-        const newFeedback = new Feedback({
-            rating,
-            comment,
-            createdAt: new Date()
-        });
+        // Find reviews where carinderiaId is either the number or "card/number"
+        const reviews = await Feedback.find({
+            $or: [
+                { carinderiaId: id },
+                { carinderiaId: `card/${id}` }
+            ]
+        }).sort({ createdAt: -1 });
 
-        const savedFeedback = await newFeedback.save();
-        console.log('Saved feedback:', savedFeedback);
-
-        res.status(201).json({
-            success: true,
-            data: savedFeedback
-        });
+        console.log('Found reviews:', reviews);
+        res.json(reviews);
     } catch (error) {
-        console.error('Error saving feedback:', error);
-        res.status(500).json({
-            success: false,
-            message: 'Error saving feedback'
+        console.error('Error fetching reviews:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: 'Error fetching reviews',
+            error: error.message 
+        });
+    }
+});
+
+// Post review route
+router.post('/', async (req, res) => {
+    try {
+        console.log('Received review data:', req.body);
+        const newFeedback = new Feedback(req.body);
+        const savedFeedback = await newFeedback.save();
+        res.status(201).json(savedFeedback);
+    } catch (error) {
+        console.error('Error saving review:', error);
+        res.status(500).json({ 
+            message: 'Error saving review',
+            error: error.message 
         });
     }
 });
