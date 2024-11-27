@@ -11,21 +11,55 @@ router.post('/register', [
     check('email', 'Valid email is required').isEmail(),
     check('password', 'Password must be at least 6 characters').isLength({ min: 6 })
   ], async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
-  
-    const { username, email, password } = req.body;
     try {
-      let user = await UserModel.findOne({ email });
-      if (user) return res.status(400).json({ msg: 'User already exists' });
-  
-      user = new UserModel({ username, email, password: await bcrypt.hash(password, 10) });
-      await user.save();
-  
-      const token = jwt.sign({ userId: user._id }, 'secretkey', { expiresIn: '1h' });
-      res.json({ token });
-    } catch (err) {
-      res.status(500).send('Server error');
+        // Validate input
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { username, email, password } = req.body;
+
+        // Check if user exists
+        let user = await UserModel.findOne({ email });
+        if (user) {
+            return res.status(400).json({ msg: 'User already exists' });
+        }
+
+        // Create new user
+        user = new UserModel({
+            username,
+            email,
+            password: await bcrypt.hash(password, 10)
+        });
+
+        // Save user to database
+        await user.save();
+        console.log('User saved:', user);
+
+        // Create and send token
+        const token = jwt.sign(
+            { userId: user._id },
+            'secretkey',
+            { expiresIn: '1h' }
+        );
+
+        res.status(201).json({
+            success: true,
+            token,
+            user: {
+                id: user._id,
+                username: user.username,
+                email: user.email
+            }
+        });
+
+    } catch (error) {
+        console.error('Registration error:', error);
+        res.status(500).json({
+            success: false,
+            msg: 'Server error during registration'
+        });
     }
   });
 

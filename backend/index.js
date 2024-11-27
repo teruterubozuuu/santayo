@@ -1,40 +1,42 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const authRoutes = require('./routes/authRoute');
+const feedbackRoutes = require('./routes/feedbackRoutes');
+
 const app = express();
-const authRoutes = require("./routes/authRoute");
 
+// Middleware
 app.use(cors());
-app.use(express.json()); // To handle JSON data
+app.use(express.json());
 
-app.use("/api/auth", authRoutes);
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/users', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB Connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-mongoose.connect("mongodb://localhost:27017/users");
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api', feedbackRoutes);
 
-const feedbackSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
+// Test route
+app.get('/test', (req, res) => {
+    res.json({ message: 'Server is running' });
 });
 
-const Feedback = mongoose.model("Feedback", feedbackSchema);
-
-app.post("/api/feedback", async (req, res) => {
-  const { name, email, message } = req.body;
-
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: "All fields are required." });
-  }
-
-  try {
-    const newFeedback = new Feedback({ name, email, message });
-    await newFeedback.save();
-    res.status(201).json({ message: "Feedback submitted successfully!" });
-  } catch (error) {
-    res.status(500).json({ error: "Failed to submit feedback." });
-  }
+const PORT = 5001;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
-app.listen(5000, () => {
-  console.log(`Server running`);
+// Add this after your routes
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+        success: false,
+        message: 'Something went wrong!'
+    });
 });

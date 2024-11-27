@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
-import { carinderiaData } from "../pages/Carinderias";
-import "./CardDetails.css";
-import Review from "./Review";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { carinderiaData } from "../pages/Carinderias";
 import { useAuth } from "../context/AuthContext";
+import "./CardDetails.css";
+import Review from "../components/Review"; // Import the Review component
+import ReviewsList from "../components/ReviewsList"; // Import the ReviewsList component
 
 function CardDetails() {
   const { id } = useParams();
@@ -12,15 +12,54 @@ function CardDetails() {
   const [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated } = useAuth();
 
-  // starting coordinates
+  // Coordinates for the map
   const fallbackLat = 14.629463;
   const fallbackLng = 121.041962;
 
-  // Store current lat, lng from carinderia
   const [mapData, setMapData] = useState({
     lat: cardDetail?.latitude || fallbackLat,
     lng: cardDetail?.longitude || fallbackLng,
   });
+
+  // State for managing reviews
+  const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const response = await fetch(`http://localhost:5001/api/feedback/${id}`);
+        const data = await response.json();
+        if (data.success) {
+          setReviews(data.data);
+        }
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+        setIsLoading(false);
+      }
+    };
+    fetchReviews();
+  }, [id]);
+
+  const handleReviewSubmission = async (newReview) => {
+    try {
+      const response = await fetch(`http://localhost:5001/api/feedback/${id}`, {
+        method: 'POST',
+        body: JSON.stringify(newReview),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit review");
+      }
+
+      const addedReview = await response.json();
+      setReviews((prevReviews) => [...prevReviews, addedReview.data]);
+    } catch (error) {
+      console.error("Error submitting review:", error);
+    }
+  };
 
   useEffect(() => {
     const loadGoogleMapsScript = () => {
@@ -37,14 +76,12 @@ function CardDetails() {
           zoom: 15,
         });
 
-        // starting marker
         new window.google.maps.Marker({
           position: { lat: fallbackLat, lng: fallbackLng },
           map: map,
           title: "Starting Location",
         });
 
-        // carinderia marker
         new window.google.maps.Marker({
           position: { lat: mapData.lat, lng: mapData.lng },
           map: map,
@@ -55,14 +92,12 @@ function CardDetails() {
         const directionsRenderer = new window.google.maps.DirectionsRenderer();
         directionsRenderer.setMap(map);
 
-        // directions from starting to carinderia
         const request = {
           origin: { lat: fallbackLat, lng: fallbackLng },
           destination: { lat: mapData.lat, lng: mapData.lng },
           travelMode: window.google.maps.TravelMode.DRIVING,
         };
 
-        // route on the map
         directionsService.route(request, (result, status) => {
           if (status === window.google.maps.DirectionsStatus.OK) {
             directionsRenderer.setDirections(result);
@@ -90,15 +125,15 @@ function CardDetails() {
   return (
     <div className="card-detail-container">
       <Link to="/carinderias">
-        <i class="bi bi-arrow-left"></i>
+        <i className="bi bi-arrow-left"></i>
       </Link>
       <div>
         {cardDetail ? (
           <>
             <h1>{cardDetail.title}</h1>
-            <br></br>
+            <br />
             <p>{cardDetail.description}</p>
-            <br></br>
+            <br />
             <h2>The Menu</h2>
             <div className="menu-list">
               {cardDetail.menu.map((category, categoryIndex) => (
@@ -133,7 +168,7 @@ function CardDetails() {
         ></div>
       </div>
 
-      {/*Review container*/}
+      {/* Review container */}
       <div style={{ marginTop: "3%" }}>
         <p
           className="reviewLink"
@@ -148,10 +183,14 @@ function CardDetails() {
           Leave a review
         </p>
 
-        {isOpen && <Review setIsOpen={setIsOpen} />}
+        {isOpen && <Review setIsOpen={setIsOpen} onSubmitReview={handleReviewSubmission} />}
 
         <h1>Reviews</h1>
-        <p>No reviews yet.</p>
+        {isLoading ? (
+          <p>Loading reviews...</p>
+        ) : (
+          <ReviewsList carinderiaId={id} />
+        )}
       </div>
     </div>
   );
