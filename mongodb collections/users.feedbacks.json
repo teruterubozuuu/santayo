@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "6746ece983f6207df03b8276"
+  },
+  "name": "Jinx ",
+  "email": "jinx@gmail.com",
+  "message": "bkit wlang tang orange ",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746ed3283f6207df03b8278"
+  },
+  "name": "Jinx",
+  "email": "jinx@gmail.com",
+  "message": "pls bkit wlang jalibi",
+  "__v": 0
+}]
