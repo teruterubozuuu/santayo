@@ -1,40 +1,31 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const feedbackRoutes = require('./routes/feedbackRoutes');
+
 const app = express();
-const authRoutes = require("./routes/authRoute");
 
+// Middleware
 app.use(cors());
-app.use(express.json()); // To handle JSON data
+app.use(express.json());
 
-app.use("/api/auth", authRoutes);
+// Routes
+app.use('/api/feedback', feedbackRoutes);
 
-mongoose.connect("mongodb://localhost:27017/users");
-
-const feedbackSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  message: String,
+// Test route
+app.get('/test', (req, res) => {
+    res.json({ message: 'Server is running' });
 });
 
-const Feedback = mongoose.model("Feedback", feedbackSchema);
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/users', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log('MongoDB Connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-app.post("/api/feedback", async (req, res) => {
-  const { name, email, message } = req.body;
-
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: "All fields are required." });
-  }
-
-  try {
-    const newFeedback = new Feedback({ name, email, message });
-    await newFeedback.save();
-    res.status(201).json({ message: "Feedback submitted successfully!" });
-  } catch (error) {
-    res.status(500).json({ error: "Failed to submit feedback." });
-  }
-});
-
-app.listen(5000, () => {
-  console.log(`Server running`);
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });

@@ -1,16 +1,24 @@
 const mongoose = require('mongoose');
 
-// Define the Product schema
-
 const userSchema = new mongoose.Schema({
-  username:String,
-  email: String,
-  password: String,
-
-});
-
-// Register the model with Mongoose
+  username: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
+}, { collection: 'userdetails' });
 
 const UserModel = mongoose.model('userdetails', userSchema);
-
-module.exports = UserModel; // Export the model
+module.exports = UserModel;
